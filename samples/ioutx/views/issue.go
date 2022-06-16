@@ -9,6 +9,7 @@ package views
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 
 	"github.com/hyperledger-labs/fabric-token-sdk/token"
 
@@ -108,6 +109,7 @@ type IssueCashViewFactory struct{}
 func (p *IssueCashViewFactory) NewView(in []byte) (view.View, error) {
 	f := &IssueCashView{IssueCash: &IssueCash{}}
 	err := json.Unmarshal(in, f.IssueCash)
+	log.Println(string(in))
 	assert.NoError(err, "failed unmarshalling input")
 
 	return f, nil

@@ -236,3 +236,13 @@ Charlie:
 ```shell
 ./ioutx view -c ./testdata/fsc/nodes/charlie/client-config.yaml -f unspent -i "{\"TokenType\":\"USD\"}"
 ```
+
+## GUI Application
+We create a [`gui`](./gui/main.go) application to provide a simplified and more user friendly way to execute the ioutx sample commands against the token-based fabric smart client network. The gui is developed using [`fyne`](https://developer.fyne.io)-a Go based toolkit for building cross platform gui applications.
+
+### Launch GUI APP
+From the directory `iouts/gui` run the follwoing command
+```shell
+go run main.go
+```
+But first ensure the FSC network is up and runnning before interracting with the gui app.

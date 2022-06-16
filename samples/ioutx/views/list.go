@@ -7,6 +7,7 @@ package views
 
 import (
 	"encoding/json"
+	"log"
 
 	"github.com/hyperledger-labs/fabric-smart-client/platform/view/services/assert"
 	"github.com/hyperledger-labs/fabric-smart-client/platform/view/view"
@@ -40,6 +41,7 @@ type ListUnspentTokensViewFactory struct{}
 func (i *ListUnspentTokensViewFactory) NewView(in []byte) (view.View, error) {
 	f := &ListUnspentTokensView{ListUnspentTokens: &ListUnspentTokens{}}
 	err := json.Unmarshal(in, f.ListUnspentTokens)
+	log.Println(string(in))
 	assert.NoError(err, "failed unmarshalling input")
 	return f, nil
 }
